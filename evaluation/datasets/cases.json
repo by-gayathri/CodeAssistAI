@@ -1,0 +1,90 @@
+[
+  {
+    "id": "case-001",
+    "language": "python",
+    "code": "def divide(a, b):\n    return a / b\n",
+    "expected_categories": ["logic"],
+    "expected_severity": "medium",
+    "expected_issue_description": "Division by zero is not handled"
+  },
+  {
+    "id": "case-002",
+    "language": "python",
+    "code": "def first(items):\n    return items[0]\n",
+    "expected_categories": ["logic"],
+    "expected_severity": "medium",
+    "expected_issue_description": "Missing empty-list or null handling before indexing"
+  },
+  {
+    "id": "case-003",
+    "language": "python",
+    "code": "def sum_to(n):\n    total = 0\n    for i in range(n):\n        total += i\n    return total\n",
+    "expected_categories": ["logic"],
+    "expected_severity": "low",
+    "expected_issue_description": "Loop boundary may exclude n when inclusive sum is intended"
+  },
+  {
+    "id": "case-004",
+    "language": "python",
+    "code": "api_key = \"sk-live-hardcoded-secret\"\nprint(api_key)\n",
+    "expected_categories": ["security"],
+    "expected_severity": "high",
+    "expected_issue_description": "Hardcoded credential"
+  },
+  {
+    "id": "case-005",
+    "language": "python",
+    "code": "def get_user(cursor, user_id):\n    query = \"SELECT * FROM users WHERE id = '\" + user_id + \"'\"\n    cursor.execute(query)\n    return cursor.fetchone()\n",
+    "expected_categories": ["security"],
+    "expected_severity": "critical",
+    "expected_issue_description": "SQL injection via string concatenation"
+  },
+  {
+    "id": "case-006",
+    "language": "python",
+    "code": "def calc(x):\n    temporary_value_xyz = x * 2\n    return x + 1\n",
+    "expected_categories": ["readability"],
+    "expected_severity": "low",
+    "expected_issue_description": "Unused variable or poor naming"
+  },
+  {
+    "id": "case-007",
+    "language": "python",
+    "code": "def process(values):\n    out = []\n    for v in values:\n        out.append(v * 2)\n    doubled = []\n    for v in values:\n        doubled.append(v * 2)\n    return out\n",
+    "expected_categories": ["maintainability", "code_quality"],
+    "expected_severity": "low",
+    "expected_issue_description": "Duplicated loop logic"
+  },
+  {
+    "id": "case-008",
+    "language": "python",
+    "code": "def load(path):\n    try:\n        return open(path).read()\n    except:\n        return None\n",
+    "expected_categories": ["code_quality"],
+    "expected_severity": "medium",
+    "expected_issue_description": "Broad or bare exception handling"
+  },
+  {
+    "id": "case-009",
+    "language": "python",
+    "code": "def has_duplicate(items):\n    for i in range(len(items)):\n        for j in range(len(items)):\n            if i != j and items[i] == items[j]:\n                return True\n    return False\n",
+    "expected_categories": ["performance"],
+    "expected_severity": "medium",
+    "expected_issue_description": "Inefficient O(n^2) duplicate check"
+  },
+  {
+    "id": "case-010",
+    "language": "python",
+    "code": "def authenticate(user, password):\n    return user == \"admin\" and password == \"admin\"\n",
+    "expected_categories": ["testing", "security"],
+    "expected_severity": "low",
+    "expected_issue_description": "Missing tests and weak authentication logic"
+  },
+  {
+    "id": "case-011",
+    "language": "python",
+    "code": "def add(a: int, b: int) -> int:\n    \"\"\"Return the sum of a and b.\"\"\"\n    return a + b\n",
+    "expected_categories": [],
+    "expected_severity": "low",
+    "expected_issue_description": "Correct code with no required findings"
+  }
+]

@@ -1,0 +1,34 @@
+Review the following {{ language }} code{% if file_name %} from file "{{ file_name }}"{% endif %}.
+
+Review focus categories: {{ review_types | join(", ") }}.
+Minimum severity to report: {{ severity_threshold }}.
+
+Respond with JSON matching this schema exactly:
+{
+  "summary": {
+    "overall_score": 0,
+    "risk_level": "low",
+    "overview": ""
+  },
+  "findings": [
+    {
+      "category": "logic",
+      "severity": "low",
+      "title": "",
+      "description": "",
+      "line_start": 1,
+      "line_end": 1,
+      "evidence": "",
+      "suggestion": "",
+      "suggested_code": null,
+      "confidence": 0.0
+    }
+  ]
+}
+
+Valid category values: logic, readability, security, performance, testing, maintainability, code_quality.
+Valid severity / risk_level values: low, medium, high, critical.
+
+SOURCE CODE BEGIN
+{{ code }}
+SOURCE CODE END

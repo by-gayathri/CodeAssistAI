@@ -1,0 +1,10 @@
+services:
+  codeassistai:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      PROVIDER: mock
+      LOG_LEVEL: INFO
+      MAX_CODE_LENGTH: "50000"
+    # In-memory repository: reviews are not persisted across container restarts.

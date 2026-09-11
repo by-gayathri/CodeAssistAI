@@ -1,0 +1,39 @@
+### CodeAssistAI sample requests
+### Requires: uvicorn app.main:app --reload
+
+@baseUrl = http://127.0.0.1:8000
+
+### Health
+GET {{baseUrl}}/health
+
+### Create review (division by zero example)
+POST {{baseUrl}}/api/v1/reviews
+Content-Type: application/json
+
+{
+  "code": "def divide(a, b):\n    return a / b",
+  "language": "python",
+  "file_name": "math_utils.py",
+  "review_types": [
+    "logic",
+    "readability",
+    "security",
+    "performance",
+    "testing"
+  ],
+  "severity_threshold": "low",
+  "include_summary": true
+}
+
+### Get review (replace REVIEW_ID)
+GET {{baseUrl}}/api/v1/reviews/REVIEW_ID
+
+### Submit feedback (replace REVIEW_ID / FINDING_ID)
+POST {{baseUrl}}/api/v1/reviews/REVIEW_ID/feedback
+Content-Type: application/json
+
+{
+  "finding_id": "FINDING_ID",
+  "feedback_type": "useful",
+  "comment": "This correctly identified a missing validation."
+}
